@@ -1,0 +1,72 @@
+
+
+  <!-- <div class="banner" *appShowAuthed="true">
+    <div class="container">
+      <h2 class="logo-font">Biolinkdepot.org</h2>
+      <p>   Bio-Link Depot gives donated lab supplies and equipment
+        a new life in schools  .</p>
+    </div>
+  </div> -->
+    <!--
+  <div class="home2-page">
+ <div class="container page">
+   <div class="row">
+      <div class="col-md-12">
+          <div class="feed-toggle">
+              <ul class="nav nav-pills outline-active">
+                <li class="nav-item">
+                  <a [hidden]="!isAuthenticated" class="nav-link"
+                     [ngClass]="{'active': listConfig.type === 'feed'}"
+                     (click)="setListTo('feed')">
+                     Your Blogs
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link"
+                     [ngClass]="{'active': listConfig.type === 'all' && !listConfig.filters.tag}"
+                     (click)="setListTo('all')">
+                     Blogs
+                  </a>
+                </li>
+                <li [hidden]="!isAuthenticated" class="nav-item">
+                  <a class="nav-link"
+                  routerLink="/editor"
+                  routerLinkActive="active">
+                  <i class="ion-compose"></i>&nbsp;New Blog
+                </a>
+                </li>
+                <li class="nav-item" [hidden]="!listConfig.filters.tag">
+                  <a class="nav-link active">
+                    <i class="ion-pound"></i> {{ listConfig.filters.tag }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+        <app-blog-list [limit]="10" [frontPage] = "true" [config]="listConfig"></app-blog-list>
+        <div class="col-md-3">
+            <div class="sidebar">
+              <p>Popular Tags</p>
+
+              <div class="tag-list">
+                <a *ngFor="let tag of tags"
+                   (click)="setListTo('all', {tag: tag})"
+                   class="tag-default tag-pill">
+                   {{ tag }}
+                </a>
+              </div>
+
+              <div [hidden]="tagsLoaded">
+                Loading tags...
+              </div>
+
+              <div [hidden]="!tagsLoaded || tags.length > 0">
+                No tags are here... yet.
+              </div>
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+
+-->
