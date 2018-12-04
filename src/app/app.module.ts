@@ -11,7 +11,11 @@ import { ErrorInterceptor } from "./error-interceptor";
 import { ErrorComponent } from "./error/error.component";
 import { AngularMaterialModule } from "./angular-material.module";
 import { PostsModule } from "./posts/posts.module";
+import { AuthService } from "./auth/auth.service";
+import { ErrorService } from "./error/error.service";
+import { PostsService } from "./posts/posts.service";
 import { HomeModule } from "./home/home.module";
+import { LayoutModule } from "@angular/cdk/layout";
 
 @NgModule({
   declarations: [
@@ -20,17 +24,20 @@ import { HomeModule } from "./home/home.module";
     ErrorComponent
   ],
   imports: [
+    HomeModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     AngularMaterialModule,
     PostsModule,
-    HomeModule
+    LayoutModule
+   
   ],
   providers: [
+ 
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }   
   ],
   bootstrap: [AppComponent],
   entryComponents: [ErrorComponent]

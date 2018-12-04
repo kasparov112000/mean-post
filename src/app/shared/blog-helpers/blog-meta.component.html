@@ -1,0 +1,14 @@
+<div class="blog-meta">
+  <ng-content></ng-content>
+  <a [routerLink]="['/profile', blog.author.username]">      
+  </a>
+  <div class="info">
+      <a class="author"
+        [routerLink]="['/profile', blog.author.username]">
+        {{ blog.author.username }}
+      </a>
+      <span class="date">
+        {{ blog.createdAt | date: 'longDate' }}
+      </span>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="donation-preview">
+  <app-donation-meta [donation]="donation">
+    <app-favorite2-button
+      [donation]="donation"
+      (toggle)="onToggleFavorite($event)"
+      class="pull-xs-right">
+      {{donation.favoritesCount}}
+    </app-favorite2-button>
+  </app-donation-meta>
+
+  <a [routerLink]="['/donation', donation.slug]" class="preview-link">
+    <h1>{{ donation.title }}</h1>
+    <p>{{ donation.description }}</p>
+    <div [innerHTML]="donation.body"></div>
+    <span>Read more...</span>
+    <ul class="tag-list">
+      <li class="tag-default tag-pill tag-outline"
+        *ngFor="let tag of donation.tagList">
+        {{ tag }}
+      </li>
+    </ul>
+  </a>
+</div>
+
+

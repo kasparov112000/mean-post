@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:3000/api"
+  apiUrl: "http://localhost:3000/api",
+  api_url_old: "http://localhost:3000/api",
+  api_url: "http://biolinkdepot-env.srfrwdmk7z.us-east-2.elasticbeanstalk.com/api"
 };
 
 /*

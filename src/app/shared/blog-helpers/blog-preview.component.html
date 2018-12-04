@@ -1,0 +1,27 @@
+<div class="col-md-22" [hidden]= "this.showHidden()" >
+
+  <a [routerLink]="['/blog', blog.slug]" class="preview-link">
+    <h1>{{ blog.title }}</h1>
+    <p>{{ blog.description }}</p>
+   
+    <div  class="col-md-22" [hidden]="blog.showOnlyPreview && !frontPage">
+     {{ blog.body }} </div>
+    
+    <span>Read more...</span>
+    <app-blog-meta [blog]="blog">
+        <app-favorite-button
+          [blog]="blog"
+          (toggle)="onToggleFavorite($event)"
+          class="pull-xs-right">
+          {{blog.favoritesCount}}
+        </app-favorite-button>
+      </app-blog-meta>  
+    <ul class="tag-list">
+      <li class="tag-default tag-pill tag-outline"
+        *ngFor="let tag of blog.tagList">
+        {{ tag }}
+      </li>
+    </ul>
+  </a>
+</div>
+  

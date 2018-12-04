@@ -1,0 +1,29 @@
+<app-donation-preview
+  *ngFor="let donation of results"
+  [donation]="donation">
+</app-donation-preview>
+
+<div class="app-donation-preview"
+  [hidden]="!loading">
+  Loading donations...
+</div>
+
+<div class="app-donation-preview"
+  [hidden]="loading || results.length">
+  No donations are here... yet.
+</div>
+
+<nav [hidden]="loading || totalPages.length <= 1">
+  <ul class="pagination">
+
+    <li class="page-item"
+      [ngClass]="{'active': pageNumber === currentPage}"
+      *ngFor="let pageNumber of totalPages"
+      (click)="setPageTo(pageNumber)">
+
+      <a class="page-link" >{{ pageNumber }}</a>
+
+    </li>
+
+  </ul>
+</nav>

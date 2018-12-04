@@ -14,7 +14,7 @@ mongoose
 
 mongoose
   .connect(
-   localDbURI
+    dbURI
   )
   .then(() => {
     console.log("Connected to database!");

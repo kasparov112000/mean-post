@@ -1,0 +1,19 @@
+<button
+  class="btn btn-sm action-btn"
+  [ngClass]="{ 'disabled': isSubmitting,
+               'btn-outline-secondary': !event.attending,
+               'btn-secondary': event.attending }"
+  (click)="toggleAttending()">
+  <i class="ion-plus-round"></i>
+  &nbsp;
+  {{ event.attending ? 'unattend' : 'attend' }} {{ event.title }}
+</button>
+
+<!-- <button class="btn btn-sm"
+ [ngClass]="{ 'disabled' : isSubmitting,
+              'btn-outline-primary': !event.favorited,
+              'btn-primary': event.favorited }"
+ (click)="toggleFavorite()">
+ 
+  <i class="ion-heart"></i> <ng-content></ng-content>
+</button> -->

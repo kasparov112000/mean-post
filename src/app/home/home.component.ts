@@ -1,17 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BlogListConfig } from '../core';
+import { AuthService } from '../auth/auth.service';
+
 // import { BlogListConfig, TagsService, UserService } from '../core';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
+  providers: [AuthService]
 })
 export class HomeComponent implements OnInit {
   constructor(
     private router: Router,
-  //  private tagsService: TagsService,
-  //  private userService: UserService
+    // ,
+    // private tagsService: TagsService,
+     private userService: AuthService
   ) {}
 
   isAuthenticated: boolean;
@@ -25,10 +29,11 @@ export class HomeComponent implements OnInit {
   tagsLoaded = false;
 
   ngOnInit() {
-  //  this.userService.isAuthenticated.subscribe(
-      (authenticated) => {
-        this.isAuthenticated = authenticated;
+    this.userService.getAuthStatusListener().subscribe(
+      (authenticated) => {       
 
+        this.isAuthenticated = authenticated;
+        console.log(authenticated);
         // set the blog list accordingly
         if (authenticated) {
           this.setListTo('feed');
@@ -36,8 +41,7 @@ export class HomeComponent implements OnInit {
           this.setListTo('all');
         }
       }
-  //  );
-
+    );
     // this.tagsService.getAll()
     // .subscribe(tags => {
     //   this.tags = tags;

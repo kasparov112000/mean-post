@@ -1,0 +1,17 @@
+<div class="donation-meta">
+  <a [routerLink]="['/profile', donation.author.username]">
+    <img [src]="donation.author.image" />
+  </a>
+
+  <div class="info">
+    <a class="author"
+      [routerLink]="['/profile', donation.author.username]">
+      {{ donation.author.username }}
+    </a>
+    <span class="date">
+      {{ donation.createdAt | date: 'longDate' }}
+    </span>
+  </div>
+
+  <ng-content></ng-content>
+</div>

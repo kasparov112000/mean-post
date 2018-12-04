@@ -1,0 +1,32 @@
+  
+
+<app-event-preview
+  *ngFor="let event of results"
+  [event]="event">
+</app-event-preview>
+
+
+<div class="app-event-preview"
+  [hidden]="!loading">
+  Loading events...
+</div>
+
+<div class="app-event-preview"
+  [hidden]="loading || results.length">
+  No events are here... yet.
+</div>
+
+<nav [hidden]="loading || totalPages.length <= 1">
+  <ul class="pagination">
+
+    <li class="page-item"
+      [ngClass]="{'active': pageNumber === currentPage}"
+      *ngFor="let pageNumber of totalPages"
+      (click)="setPageTo(pageNumber)">
+
+      <a class="page-link" >{{ pageNumber }}</a>
+
+    </li>
+
+  </ul>
+</nav>

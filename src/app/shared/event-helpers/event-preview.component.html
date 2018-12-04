@@ -1,0 +1,35 @@
+<div class="banner">
+    <div class="container">
+<div class="event-preview">
+  <app-event-meta [event]="event">
+    
+ <!-- <app-favorite1-button
+    [event]="event"
+    class="pull-xs-right"
+    (toggle)="onToggleFavorite($event)">
+    {{ event.favorited ? 'Unfavorite' : 'Favorite' }} Event <span class="counter">({{ event.favoritesCount }})</span>
+  </app-favorite1-button> -->
+
+    <app-attend-button
+    [event]="event"
+    (toggle)="onToggleAttending($event)"
+    class="pull-xs-right"
+    >
+  </app-attend-button>
+
+  </app-event-meta>
+
+  <a [routerLink]="['/event', event.slug]" class="preview-link">
+    <h1>{{ event.title }} </h1>
+    <p>{{ event.description }}</p>
+    <span>Read more...</span>
+    <ul class="tag-list">
+      <li class="tag-default tag-pill tag-outline"
+        *ngFor="let tag of event.tagList">
+        {{ tag }}
+      </li>
+    </ul>
+  </a>
+</div>
+</div>
+</div>
